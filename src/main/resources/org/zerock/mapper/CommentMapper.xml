@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="org.zerock.mapper.CommentMapper">
+  
+  	<select id="getList" resultType="org.zerock.domain.CommentVO">
+  <![CDATA[
+  		select * from tbl_comment where cno > 0
+  ]]>
+  	</select>
+  	
+  	<insert id="insert">
+  		insert into tbl_comment (cno, bno, content, writer) 
+  		VALUES (seq_comment.nextval, #{bno}, #{content}, #{writer})  		
+  	</insert>
+  	
+  	<insert id="insertSelectKey">
+  		<selectKey keyProperty="cno" order="BEFORE" resultType="long">
+  			SELECT seq_comment.nextval FROM dual
+  		</selectKey>
+  		insert into tbl_comment (cno, bno, content, writer) 
+  		VALUES (#{cno}, #{bno}, #{content}, #{writer})
+  	</insert>
+  	
+  	<select id="read" resultType="org.zerock.domain.CommentVO">
+  		SELECT * FROM tbl_comment WHERE cno = #{cno}
+  	</select>
+  	
+  	<delete id="remove">
+  		delete FROM tbl_comment WHERE cno = #{cno}
+  	</delete>
+  	
+  	<update id="update">
+  		UPDATE tbl_comment 
+  		SET 
+  			content = #{content},
+			writer = #{writer},
+			updatedate = SYSDATE
+		WHERE cno = #{cno}
+  	</update>
+  	
+  </mapper>
