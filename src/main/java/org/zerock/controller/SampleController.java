@@ -72,6 +72,8 @@ public class SampleController {
 		return new String[] {"category: " + cat, "productid: " + pid};
 	}
 	
+	//requestbody보낼때
+	//{"tno":3, "owner":"donald","grade":"vip"}
 	@PostMapping("/ticket")
 	public Ticket convert(@RequestBody Ticket ticket) {
 		log.info("convert.....ticket" + ticket);
