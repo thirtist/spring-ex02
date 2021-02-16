@@ -9,6 +9,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
+	<bean id="ociConfigPath" class="java.lang.String">
+		<constructor-arg value="/home/opc/oci/config"></constructor-arg>
+	</bean>
+	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	<!-- log4jdbc log4j2 jdbc4 사용하기위해서 변경함
  		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>

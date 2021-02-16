@@ -222,6 +222,10 @@ $(document).ready(function(){
 						<textarea readonly class="form-control" id="textarea1"
 							rows="3"><c:out value="${board.content }"/></textarea>
 					</div>
+					
+					<div>
+						<img alt="" class="img-fluid" src="${staticPath }${board.filename }">
+					</div>
 
 					<div class="form-group">
 						<label for="input1">작성자</label> <input readonly value='<c:out value="${board.writer }"/>' type="text"

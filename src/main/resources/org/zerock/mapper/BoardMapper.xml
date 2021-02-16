@@ -66,8 +66,8 @@
   		select seq_board.nextval from dual
   		</selectKey>
   		
-		insert into tbl_board (bno, title, content, writer)
-		values (#{bno }, #{title}, #{content}, #{writer})
+		insert into tbl_board (bno, title, content, writer, filename)
+		values (#{bno }, #{title}, #{content}, #{writer}, #{filename})
   	</insert>
   	
   	<select id="read" resultType="org.zerock.domain.BoardVO">
@@ -84,6 +84,7 @@
   	 		title = #{title},
   	 		content = #{content},
   	 		writer = #{writer},
+  	 		filename = #{filename},
   	 		updateDate = sysdate
   	 	WHERE
   	 		bno = #{bno}

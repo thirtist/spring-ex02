@@ -32,7 +32,7 @@
 		<div class="row">
 			<div class="col-12 col-lg-6 offset-lg-3">
 
-				<form method="post"<%-- action="${pageContext.request.contextPath }/board/register" --%>
+				<form method="post" enctype="multipart/form-data"<%-- action="${pageContext.request.contextPath }/board/register" --%>
 		>
 					<div class="form-group">
 						<label for="input1">제목</label> <input name="title" type="text"
@@ -43,6 +43,11 @@
 						<label for="textarea1">내용</label>
 						<textarea name="content" class="form-control" id="textarea1"
 							rows="3"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<label for="input3">파일</label> <input name="file" type="file"
+							accept="image/*" class="form-control" id="input3" >
 					</div>
 
 					<div class="form-group">
